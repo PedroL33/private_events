@@ -1,0 +1,27 @@
+<div id=creator>
+    <h3>Pending Requests:</h3>
+    <% @user.events.each do |item| %>
+        <div>
+            <% item.requested.each do |request| %>
+                <%= request.username %> would like to attend <%= item.title %>
+                <%= button_to "Send an Invite!", event_attendees_path(item.id), params: {:event_attendee => {user_id: request.id, event_id: item.id, status: "invited"}} %>
+                </br>
+            <% end %>
+        </div>
+    <% end %>
+    <h3>Your Invites:</h3>
+    <div>
+        <% @user.invited.each do |item| %>
+            <%= item.title %>
+            <%= button_to "Accept invite!", event_attendees_path(item.id), params: {:event_attendee => {user_id: session[:user_id], event_id: item.id, status: "accepted"}} %>
+            </br>
+        <% end %>
+    </div>
+    <h3>Events you are attending</h3>
+    <div>
+        <% @user.accepted.each do |item| %>
+            <%= item.title %>
+            </br>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<% provide(:title, "Events Index") %>
+<h2> Past Events </h2>
+<% @past.each do |i| %>
+    <%= link_to "#{i.title}", event_path(i.id) %> on <%= i.date.strftime("%Y-%m-%d %H:%M:%S") %>
+    </br>
+<% end %>
+
+<h2> Upcoming Events </h2>
+<div>
+    <% @upcoming.each do |i| %>
+        <%= link_to "#{i.title}", event_path(i.id) %> on <%= i.date %> hosted by <%= i.creator.username %>
+        </br>
+    <% end %>
+</div>

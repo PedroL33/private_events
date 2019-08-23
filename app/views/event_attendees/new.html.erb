@@ -1,0 +1,9 @@
+<%= form_for @attendee do |f| %>
+    <%= f.label :event_id %>
+    <%= f.select :event_id, @events.all.collect {|p| [p.title, p.id]} %>
+    <%= f.hidden_field :user_id, :value => params[:invited_id] %>
+    <%= f.hidden_field :status, :value => params[:status] %>
+    <%= f.submit %>
+<% end %>
+
+

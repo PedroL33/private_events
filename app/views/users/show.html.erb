@@ -1,0 +1,28 @@
+<% provide(:title, "#{@user.username}") %>
+<h3> Upcoming Events </h3>
+<div>
+    <% @upcoming_events.each do |event| %>
+        <%= link_to "#{event.title}", event_path(event.id) %>
+        </br>
+    <% end %>
+</div>
+<h3>Past Events</h3>
+<div>
+    <% @past_events.each do |event| %>
+        <%= link_to "#{event.title}", event_path(event.id) %>
+        </br>
+    <% end %>
+</div>
+<h3>Hosted Events </h3>
+<div>
+    <% @user.events.each do |item| %>
+        <%= link_to "#{item.title}", event_path(item.id) %>
+        </br>
+    <% end %>
+</div>
+</br>
+<% if !is_user?(@user) %>
+    <%= link_to "Invite #{@user.username} to your events!", new_event_attendee_path(invited_id: @user.id, status: "invited") %>
+<% else %>
+    <%= render 'layouts/creator_view' %>
+<% end %>

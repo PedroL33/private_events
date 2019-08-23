@@ -1,0 +1,10 @@
+<% provide(:title, "New Event") %>
+<div class = input>
+    <%= form_for @event do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %></br>
+        <%= f.label :date %>
+        <%= f.date_select(:date, :order => [:month, :day, :year]) %>
+        <%= f.submit "Create event!" %>
+    <% end %>
+</div>

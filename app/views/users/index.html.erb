@@ -1,0 +1,7 @@
+<div>
+    <% provide(:title, "All Users") %>
+    <% @users.each do |item| %>
+        <%= link_to "#{item.username}", user_path(item.id) %> 
+        </br>
+    <% end %>
+<div>

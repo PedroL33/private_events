@@ -1,0 +1,25 @@
+<% provide(:title, "#{@event.title}") %>
+<h3>Host: <%= @event.creator.username %></h3>
+<div>
+    <% if !already_happened?(@event) %>
+        <% if creator?(@event) %>
+            <%= link_to "Invite your friends.", root_url %>
+        <% elsif @status == "invited" %>
+            <%= button_to "Attend Event", event_attendees_path(@event.id), params: {:event_attendee => {user_id: session[:user_id], event_id: @event.id, status: "accepted"}} %>
+        <% elsif @status == "requested" %>
+            <%= @event.creator.username %> has been notified that you wish to attend.
+        <% elsif @status == "accepted" %>
+            <%= @event.creator.username %> has been notified of your intention to attend this event.
+        <% else %>
+            <%= button_to "Request an invite", event_attendees_path, params: {:event_attendee => {user_id: session[:user_id], event_id: @event.id, status: "requested"}} %>
+        <% end %>
+        <h2> Expected to attend </h2>
+    <% else %>
+        <h2> People who attended this event </h2>
+    <% end %>
+    <% @event.accepted.each do |i| %>
+        <%= link_to "#{i.username}", user_path(i.id) %>
+        </br>
+    <% end %>
+</div>
+

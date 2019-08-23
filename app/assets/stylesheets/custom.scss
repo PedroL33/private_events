@@ -1,0 +1,80 @@
+  /* typography */
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333; 
+    font-family: 'Droid serif', serif; 
+    font-weight: 400; 
+    font-style: italic;      
+    margin: 0 0 12px; 
+    text-align: center; 
+    margin-top: 10px;
+  }
+
+.input {
+    padding: 50px 100px;
+}
+
+h1 {
+    font-size: 4em; 
+}
+
+input[type=text] {
+    width: 50%;
+    box-sizing: border-box;
+    
+}
+
+.input {
+
+}
+
+.button_to input, input[type = "submit"] { 
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 16px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+  
+h2 {
+    font-size: 2.5em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 2em;
+    letter-spacing: -1px;
+    margin-top: 20px;
+}
+  
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 14px 16px;
+    background-color: #333;
+}
+
+li {
+    display: inline;
+    width: 60px;
+}
+
+li a {
+    color:white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+div {
+    text-align: center;
+}
